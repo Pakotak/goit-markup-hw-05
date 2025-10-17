@@ -54,9 +54,9 @@ p {
   background-color: #404bbf;
 }
 
-body:has(.backdrop.is-open) {
+/*body:has(.backdrop.is-open) {
   overflow: hidden;
-}
+}*/
 
 /* #endregion CSS reset */
 /* Header */
@@ -567,6 +567,9 @@ body:has(.backdrop.is-open) {
   align-items: center;
   gap: 24px;
 }
+.footer-form-sbr {
+  line-height: 1.5;
+}
 
 .footer-form-input {
   background-color: transparent;
@@ -577,6 +580,10 @@ body:has(.backdrop.is-open) {
   color: #fff;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   outline: none;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
 }
 
 .footer-form-input::placeholder {
@@ -592,8 +599,9 @@ body:has(.backdrop.is-open) {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: 165px;
+  min-width: 165px;
   height: 40px;
+  font-weight: 500;
   border: none;
   border-radius: 4px;
   background-color: #4d5ae5;
@@ -612,6 +620,7 @@ body:has(.backdrop.is-open) {
 
 .icon-send {
   fill: currentColor;
+  margin-left: 16px;
 }
 /* #endregion Footer */
 
@@ -628,7 +637,8 @@ body:has(.backdrop.is-open) {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-open {
@@ -639,18 +649,18 @@ body:has(.backdrop.is-open) {
 
 .modal {
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   padding: 24px;
   border-radius: 4px;
   background: #fcfcfc;
-
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 80px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   opacity: 1;
-  transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
-  box-sizing: border-box;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn {
@@ -667,11 +677,24 @@ body:has(.backdrop.is-open) {
   background-color: rgba(231, 233, 252, 1);
   border-radius: 50%;
   cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-btn-icon {
   display: flex;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.modal-btn:hover {
+  background-color: #404bbf;
+  fill: #ffffff;
+  border: none;
+}
+.modal-btn:focus {
+  border: none;
+  background-color: #404bbf;
+  fill: #ffffff;
+}
 .modal-btn:active {
   background-color: rgba(64, 75, 191, 1);
 }
@@ -679,7 +702,7 @@ body:has(.backdrop.is-open) {
   color: rgba(255, 255, 255, 1);
 }
 .btn-accent {
-  width: 169px;
+  min-width: 169px;
   height: 56px;
   display: block;
   margin: auto;
@@ -722,8 +745,8 @@ body:has(.backdrop.is-open) {
   font-weight: 400;
   font-style: Regular;
   font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 4%;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
 }
 
 .modal-form-field {
@@ -731,22 +754,27 @@ body:has(.backdrop.is-open) {
 
 .modal-form-wrapper {
   position: relative;
+  margin-bottom: 8px;
 }
 
 .modal-form-input {
   width: 360px;
   height: 40px;
   font-family: Roboto;
-  padding: 8px 8px 8px 34px;
+  padding-left: 38px;
   font-size: 16px;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
-
-  transition: border-color 250ms ease-in;
+  background-color: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: transparent;
 }
 
 .modal-form-input:focus {
   border-color: rgba(77, 90, 229, 1);
+}
+.modal-form-icon:focus {
+  fill: #4d5ae5;
 }
 
 .modal-form-icon {
@@ -756,7 +784,7 @@ body:has(.backdrop.is-open) {
   transform: translateY(-50%);
   color: rgba(46, 47, 66, 1);
   pointer-events: none;
-  transition: stroke 250ms ease-in;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-wrapper:focus-within .modal-form-icon {
@@ -766,13 +794,17 @@ body:has(.backdrop.is-open) {
 .modal-form-message {
   width: 360px;
   height: 120px;
-  padding: 8px 8px 8px 16px;
+  padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   resize: none;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 250ms ease-in;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-message:focus {
@@ -798,13 +830,36 @@ body:has(.backdrop.is-open) {
 
 /* #endregion */
 
-/* #region Original checkbox styling */
+/* #region Checkbox styling */
+
+.modal-form-field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.agreement-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
 .agreement-wrapper {
   display: flex;
   align-items: center;
-  cursor: pointer;
   gap: 8px;
-  margin-bottom: 16px;
+  cursor: pointer;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
 }
 
 .agreement-checkbox {
@@ -812,35 +867,47 @@ body:has(.backdrop.is-open) {
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.agreement-check {
-  display: none;
+.agreement-checkbox-icon {
+  color: #f4f4fd;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.agreement-check:checked + .agreement-checkbox {
-  background-color: rgba(64, 75, 191, 1);
+.agreement-check:checked + .agreement-wrapper .agreement-checkbox {
+  background-color: #404bbf;
+  border: none;
 }
 
-.agreement-check:checked + .agreement-checkbox svg {
-  display: block;
-  color: rgba(244, 244, 253, 1);
-}
-
-.agreement-checkbox svg {
-  display: none;
+.agreement-check:checked
+  + .agreement-wrapper
+  .agreement-checkbox
+  .agreement-checkbox-icon {
+  fill: #f4f4fd;
 }
 
 .agreement-text {
-  font-family: Roboto;
-  font-weight: 400;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.04em;
-  color: rgba(142, 143, 153, 1);
+  line-height: 1.2;
+  color: #8e8f99;
 }
+
+.agreement-link {
+  color: #4d5ae5;
+  text-decoration: underline;
+  transition: color 200ms ease;
+}
+
+.agreement-link:hover,
+.agreement-link:focus {
+  color: #404bbf;
+}
+
 /* #endregion */
