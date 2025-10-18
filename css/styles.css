@@ -889,7 +889,10 @@ p {
   border: none;
 }
 
-.agreement-check:checked + .agreement-wrapper > .agreement-checkbox svg {
+.agreement-check:checked
+  + .agreement-wrapper
+  > .agreement-checkbox
+  .agreement-checkbox-icon {
   fill: #f4f4fd;
 }
 
@@ -901,7 +904,7 @@ p {
 }
 
 .agreement-link {
-  color: #4d5ae5; 
+  color: #4d5ae5;
   text-decoration: underline;
   transition: color 200ms ease;
 }
