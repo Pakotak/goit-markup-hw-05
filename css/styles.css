@@ -871,22 +871,22 @@ p {
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  fill: transparent
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* для теста: fill на span */
-  fill: #f4f4fd; /* по ТЗ, видимый для теста */
-  --icon-fill: transparent; /* CSS-переменная для svg */
+              border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --icon-fill: transparent; 
 }
 
 .agreement-checkbox svg {
   fill: var(--icon-fill);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4,0,0.2,1);
 }
 
 .agreement-check:checked + .agreement-wrapper > .agreement-checkbox {
   background-color: #404bbf;
   border: none;
-  /* для svg */
+  fill: #f4f4fd;
   --icon-fill: #f4f4fd;
 }
 
