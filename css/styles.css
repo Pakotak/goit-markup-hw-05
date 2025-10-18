@@ -849,7 +849,6 @@ p {
   overflow: hidden;
   border: 0;
 }
-
 .agreement-wrapper {
   display: flex;
   align-items: center;
@@ -870,22 +869,26 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 250ms ease, border 250ms ease, fill 250ms ease;
   background-color: transparent;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .agreement-checkbox-icon {
-  fill: transparent; 
-  transition: fill 250ms ease;
+  width: 10px;
+  height: 8px;
+  fill: transparent;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.agreement-check:checked + .agreement-wrapper .agreement-checkbox {
+.agreement-check:checked + .agreement-wrapper > .agreement-checkbox {
   background-color: #404bbf;
   border: none;
 }
 
-.agreement-check:checked + .agreement-wrapper .agreement-checkbox svg {
-  fill: #f4f4fd; /
+.agreement-check:checked + .agreement-wrapper > .agreement-checkbox svg {
+  fill: #f4f4fd;
 }
 
 .agreement-text {
@@ -893,9 +896,6 @@ p {
   font-size: 12px;
   line-height: 1.2;
   color: #8e8f99;
-}
-
-.agreement-link-wrapper {
 }
 
 .agreement-link {
