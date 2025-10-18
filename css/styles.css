@@ -880,8 +880,9 @@ p {
 .agreement-checkbox-icon {
   width: 10px;
   height: 8px;
-  fill: transparent;
+  fill: currentColor;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: transparent;
 }
 
 .agreement-check:checked + .agreement-wrapper > .agreement-checkbox {
