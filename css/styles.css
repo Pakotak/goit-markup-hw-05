@@ -901,7 +901,7 @@ p {
 }
 
 .agreement-link {
-  color: #4d5ae5;
+  color: #4d5ae5; 
   text-decoration: underline;
   transition: color 200ms ease;
 }
