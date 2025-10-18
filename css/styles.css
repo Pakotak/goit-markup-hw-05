@@ -871,23 +871,26 @@ p {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  fill: transparent
+  fill: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --icon-fill: transparent; 
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.agreement-checkbox svg {
-  fill: var(--icon-fill);
-  transition: fill 250ms cubic-bezier(0.4,0,0.2,1);
+.agreement-checkbox-icon {
+  width: 10px;
+  height: 8px;
+  fill: transparent;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .agreement-check:checked + .agreement-wrapper > .agreement-checkbox {
   background-color: #404bbf;
   border: none;
+}
+
+.agreement-check:checked + .agreement-wrapper > .agreement-checkbox svg {
   fill: #f4f4fd;
-  --icon-fill: #f4f4fd;
 }
 
 .agreement-text {
